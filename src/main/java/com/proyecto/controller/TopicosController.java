@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.proyecto.dto.TopicoDTO;
+import com.proyecto.forum.model.Curso;
+import com.proyecto.forum.model.Topico;
 
 
 @RestController //Create a ResponseBody into
@@ -25,7 +27,7 @@ public class TopicosController {
 		Topico topico2 = new Topico("Titulo Topico", "Mensaje Topico", new Curso("C#", "Programacion"));
 		Topico topico3 = new Topico("Titulo Topico", "Mensaje topico", new Curso("JS", "Lenguajes Programacion"));
 		
-		return TopicoDTO.convertir((topico, topico2));
+		return TopicoDTO.convertir(Arrays.asList(topico,topico2, topico3));
 		
 	}
 }

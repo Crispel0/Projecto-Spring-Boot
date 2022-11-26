@@ -3,7 +3,6 @@ package com.proyecto.controller;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +22,9 @@ public class TopicosController {
 		
 		Topico topico = new Topico("Titulo Topico", "Mensaje Topico", new Curso("Linux", "DevOps"));
 		Topico topico2 = new Topico("Titulo Topico", "Mensaje Topico", new Curso("C#", "Programacion"));
+		Topico topico3 = new Topico("Titulo Topico", "Mensaje topico", new Curso("JS", "Lenguajes Programacion"));
 		
+@
 		return TopicoDTO.convertir((topico, topico2));
 		
 	}

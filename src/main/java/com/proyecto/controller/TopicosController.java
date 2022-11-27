@@ -25,9 +25,8 @@ public class TopicosController {
 		
 		Topico topico = new Topico("Titulo Topico", "Mensaje Topico", new Curso("Linux", "DevOps"));
 		Topico topico2 = new Topico("Titulo Topico", "Mensaje Topico", new Curso("C#", "Programacion"));
-		Topico topico3 = new Topico("Titulo Topico", "Mensaje topico", new Curso("JS", "Lenguajes Programacion"));
 		
-		return TopicoDTO.convertir(Arrays.asList(topico,topico2, topico3));
+		return TopicoDTO.convertir(Arrays.asList(topico,topico2));
 		
 	}
 }

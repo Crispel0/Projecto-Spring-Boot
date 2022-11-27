@@ -2,12 +2,22 @@ package com.proyecto.forum.model;
 
 import java.time.LocalDateTime;
 
-public class Respuesta {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+@Entity
+public class Respuesta {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String mensaje;
+	@ManyToOne
 	private Topico topico;
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
+	@ManyToOne
 	private Usuario autor;
 	private boolean solucion = false;
 

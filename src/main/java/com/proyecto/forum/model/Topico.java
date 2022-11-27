@@ -1,18 +1,34 @@
 package com.proyecto.forum.model;
 
 import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Topico {
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+@Entity
+public class Topico {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String titulo;
 	private String mensaje;
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
+	@Enumerated(EnumType.STRING) //Guarda el valor del array inicializado en 0 en una String para mostrarlo en el endpoint//
 	private StatusTopico status = StatusTopico.SIN_RESPUESTA;
+	@ManyToOne
 	private Usuario autor;
+	@ManyToOne
 	private Curso curso;
+	@OneToMany(mappedBy = "topico") //parametro para hacer una relacion entre clase Topico y Atributo De Clase Respuesta//
 	private List<Respuesta> respuestas = new ArrayList<>();
 
 	public Topico(String titulo, String mensaje, Curso curso) {

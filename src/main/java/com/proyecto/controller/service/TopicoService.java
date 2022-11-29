@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.proyecto.controller.Form.TopicoForm;
 import com.proyecto.controller.repository.TopicoRepository;
 import com.proyecto.dto.TopicoDTO;
 import com.proyecto.forum.model.Topico;
@@ -23,5 +24,9 @@ public class TopicoService {
 			resultado = topicorepository.findByCurso_Nombre(nombreCurso);
 		}
 		return TopicoDTO.convertir(resultado);
+	}
+
+	public void registrar(TopicoForm topicoForm) {
+		
 	} 
 }

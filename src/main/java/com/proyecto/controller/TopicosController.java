@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.proyecto.controller.Form.TopicoForm;
 import com.proyecto.controller.service.TopicoService;
 import com.proyecto.dto.TopicoDTO;
 
@@ -32,7 +34,8 @@ public class TopicosController {
 	
 	//@RequestMapping(value ="/topicos",method = RequestMethod.POST )
 	@PostMapping 
-	public void registrar () {
-		
+	//here create a new Topico for make a difference between the TopicoDTO and this Topic//
+	public void registrar (@RequestBody TopicoForm topicoForm) {
+		topicoservice.registrar(topicoForm);
 	}
 }

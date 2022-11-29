@@ -15,8 +15,13 @@ public class TopicoService {
 	@Autowired //indique Spring that is a dependencie//
 	TopicoRepository topicorepository;
 
-	public List<TopicoDTO> listar() {
-			List<Topico> resultado = topicorepository.findAll();
+	public List<TopicoDTO> listar(String nombreCurso) {
+		List<Topico> resultado;
+		if(nombreCurso == null) {
+			resultado = topicorepository.findAll();}
+		else { //Search of nameofcourse for your titule//
+			resultado = topicorepository.findByCursoNombre(nombreCurso);
+		}
 		return TopicoDTO.convertir(resultado);
 	} 
 }

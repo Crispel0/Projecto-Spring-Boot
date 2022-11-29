@@ -1,4 +1,4 @@
-package com.proyecto.forum.model;
+package  com.proyecto.forum.model;
 
 public enum StatusTopico {
 

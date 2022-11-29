@@ -20,7 +20,7 @@ public class TopicoService {
 		if(nombreCurso == null) {
 			resultado = topicorepository.findAll();}
 		else { //Search of nameofcourse for your titule {is a type of abstraction where call the relation for your camp}//
-			resultado = topicorepository.findByCursonombre(nombreCurso);
+			resultado = topicorepository.findByCurso_Nombre(nombreCurso);
 		}
 		return TopicoDTO.convertir(resultado);
 	} 

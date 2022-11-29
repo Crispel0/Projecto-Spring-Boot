@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,7 +13,7 @@ import com.proyecto.controller.service.TopicoService;
 import com.proyecto.dto.TopicoDTO;
 
 
-
+@RequestMapping("/topicos")
 @RestController //Create a ResponseBody into
 public class TopicosController {
 	//Abstraction of TopicoRepository for call the method listar//
@@ -19,10 +21,18 @@ public class TopicosController {
 	/**
 	 * Create a object of topicos, pass your valuer for parameters and return a {@link Arrays} "static" to {@link List}
 	 */
-	@RequestMapping("/topicos")
+	
+	//@RequestMapping(value ="/topicos",method = RequestMethod.GET )
+	@GetMapping
 	List<TopicoDTO> listar(String nombreCurso){
 		
 		return topicoservice.listar(nombreCurso);
+		
+	}
+	
+	//@RequestMapping(value ="/topicos",method = RequestMethod.POST )
+	@PostMapping 
+	public void registrar () {
 		
 	}
 }

@@ -9,6 +9,9 @@ import com.proyecto.forum.model.Topico;
 //Receive two parameters the class that desire implement the differents methods and the ID of this class//
 public interface TopicoRepository extends JpaRepository<Topico, Long>{
 
-	//Method own where search from the interface JpaRepository by the camp of a relation {name of relation Nombre: camp of the relation Curso}
-	List<Topico> findByCursonombre(String nombreCurso);
+	/*
+	 * Method own where search from the interface JpaRepository by the camp of a relation 
+	 * {name of relation Nombre: camp of the relation Curso} the _ indique that is a relation between the Curso and your Nombre
+	 */
+	List<Topico> findByCurso_Nombre(String nombreCurso);
 }

@@ -14,7 +14,7 @@ import com.proyecto.dto.TopicoDTO;
 
 @RestController //Create a ResponseBody into
 public class TopicosController {
-	
+	//Abstraction of TopicoRepository for call the method listar//
 	TopicoService topicoservice;
 	/**
 	 * Create a object of topicos, pass your valuer for parameters and return a {@link Arrays} "static" to {@link List}

@@ -19,8 +19,8 @@ public class TopicoService {
 		List<Topico> resultado;
 		if(nombreCurso == null) {
 			resultado = topicorepository.findAll();}
-		else { //Search of nameofcourse for your titule//
-			resultado = topicorepository.findByCursoNombre(nombreCurso);
+		else { //Search of nameofcourse for your titule {is a type of abstraction where call the relation for your camp}//
+			resultado = topicorepository.findByCursonombre(nombreCurso);
 		}
 		return TopicoDTO.convertir(resultado);
 	} 

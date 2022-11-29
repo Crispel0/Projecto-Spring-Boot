@@ -10,5 +10,5 @@ import com.proyecto.forum.model.Topico;
 public interface TopicoRepository extends JpaRepository<Topico, Long>{
 
 	//Method own where search from the interface JpaRepository by the camp of a relation {name of relation Nombre: camp of the relation Curso}
-	List<Topico> findByCursoNombre(String nombreCurso);
+	List<Topico> findByCursonombre(String nombreCurso);
 }

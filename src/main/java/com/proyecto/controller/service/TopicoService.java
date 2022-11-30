@@ -4,18 +4,28 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 import com.proyecto.controller.Form.TopicoForm;
+import com.proyecto.controller.repository.CursoRepository;
 import com.proyecto.controller.repository.TopicoRepository;
+import com.proyecto.controller.repository.UsuarioRepository;
 import com.proyecto.dto.TopicoDTO;
+import com.proyecto.forum.model.Curso;
 import com.proyecto.forum.model.Topico;
+import com.proyecto.forum.model.Usuario;
+
 
 @Service
 public class TopicoService {
 	
 	@Autowired //indique Spring that is a dependencie//
-	TopicoRepository topicorepository;
-
+	private TopicoRepository topicorepository;
+	@Autowired
+	private UsuarioRepository usuariorepository;
+	@Autowired
+	private CursoRepository cursoRepository;
+	
 	public List<TopicoDTO> listar(String nombreCurso) {
 		List<Topico> resultado;
 		if(nombreCurso == null) {
@@ -25,8 +35,10 @@ public class TopicoService {
 		}
 		return TopicoDTO.convertir(resultado);
 	}
-
-	public void registrar(TopicoForm topicoForm) {
-		
+	
+	//the JpaRepository find a id from the topicoForm and save this date in a Optional or not of Usuario//
+	public void registrar(TopicoForm topicoForm) { //search of dates specify with the get of each class//
+		Optional<Usuario> usuario = usuariorepository.findById(topicoForm.getidUsuario());
+		Optional <Curso> curso = cursoRepository.findByNombre(topicoForm.getNombreCurso());
 	} 
 }

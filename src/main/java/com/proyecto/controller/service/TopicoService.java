@@ -1,4 +1,4 @@
-package com.proyecto.controller.service;
+package :om.proyecto.controller.service;
 
 import java.util.List;
 
@@ -37,13 +37,13 @@ public class TopicoService {
 	}
 	
 	//the JpaRepository find a id from the topicoForm and save this date in a Optional or not of Usuario//
-	public Topico registrar(TopicoForm topicoForm) { //search of dates specify with the get of each class//
+	public void registrar(TopicoForm topicoForm) { //search of dates specify with the get of each class//
 		Optional<Usuario> usuario = usuariorepository.findById(topicoForm.getidUsuario());
 		Optional <Curso> curso = cursoRepository.findByNombre(topicoForm.getNombreCurso());
 		
-		Topico topico = topicoForm.convertir(usuario,curso);
+Topico topico = topicoForm.convertir(usuario,curso);
 		
-		return topicoRepository.save(topico);
+topicorepository.save(topico);
 
 	} 
 }

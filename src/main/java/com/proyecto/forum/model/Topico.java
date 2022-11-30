@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -35,6 +36,16 @@ public class Topico {
 		this.titulo = titulo;
 		this.mensaje = mensaje;
 		this.curso = curso;
+	}
+	
+	public Topico () {} //Constuctor default para que el la BBDD acepte su entrada y no lanze errors//
+
+	public Topico(String titulo, String mensaje, Optional<Usuario> usuario, Optional<Curso> curso) {
+		this.titulo = titulo; this.mensaje = mensaje;
+		
+		usuario.ifPresent(u -> this.autor = u); //si el usuario esta presente {existe} entonces asignale a autor con la variable u
+		curso.ifPresent(c -> this.curso = c); //si el usuario esta presente {existe} entonces asignale c curso con la variable c
+		
 	}
 
 	@Override

@@ -40,5 +40,7 @@ public class TopicoService {
 	public void registrar(TopicoForm topicoForm) { //search of dates specify with the get of each class//
 		Optional<Usuario> usuario = usuariorepository.findById(topicoForm.getidUsuario());
 		Optional <Curso> curso = cursoRepository.findByNombre(topicoForm.getNombreCurso());
+		
+		Topico topico = topicoForm.convertir(usuario,curso);
 	} 
 }

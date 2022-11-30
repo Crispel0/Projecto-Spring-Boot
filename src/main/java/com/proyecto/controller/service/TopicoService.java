@@ -1,4 +1,4 @@
-package com.proyecto.controller.service;
+package :om.proyecto.controller.service;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import com.proyecto.forum.model.Usuario;
 public class TopicoService {
 	
 	@Autowired //indique Spring that is a dependencie//
-	private TopicoRepository topicorepository;
+	private TopicoRepository topicoRepository;
 	@Autowired
 	private UsuarioRepository usuariorepository;
 	@Autowired
@@ -29,9 +29,9 @@ public class TopicoService {
 	public List<TopicoDTO> listar(String nombreCurso) {
 		List<Topico> resultado;
 		if(nombreCurso == null) {
-			resultado = topicorepository.findAll();}
+			resultado = topicoRepository.findAll();}
 		else { //Search of nameofcourse for your titule {is a type of abstraction where call the relation for your camp}//
-			resultado = topicorepository.findByCurso_Nombre(nombreCurso);
+			resultado = topicoRepository.findByCurso_Nombre(nombreCurso);
 		}
 		return TopicoDTO.convertir(resultado);
 	}
@@ -41,6 +41,9 @@ public class TopicoService {
 		Optional<Usuario> usuario = usuariorepository.findById(topicoForm.getidUsuario());
 		Optional <Curso> curso = cursoRepository.findByNombre(topicoForm.getNombreCurso());
 		
-		Topico topico = topicoForm.convertir(usuario,curso);
+Topico topico = topicoForm.convertir(usuario,curso);
+		
+topicorepository.save(topico);
+
 	} 
 }

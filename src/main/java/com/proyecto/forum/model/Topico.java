@@ -32,12 +32,6 @@ public class Topico {
 	@OneToMany(mappedBy = "topico") //parametro para hacer una relacion entre clase Topico y Atributo De Clase Respuesta//
 	private List<Respuesta> respuestas = new ArrayList<>();
 
-	public Topico(String titulo, String mensaje, Curso curso) {
-		this.titulo = titulo;
-		this.mensaje = mensaje;
-		this.curso = curso;
-	}
-	
 	public Topico () {} //Constuctor default para que el la BBDD acepte su entrada y no lanze errors//
 
 	public Topico(String titulo, String mensaje, Optional<Usuario> usuario, Optional<Curso> curso) {
@@ -46,6 +40,16 @@ public class Topico {
 		usuario.ifPresent(u -> this.autor = u); //si el usuario esta presente {existe} entonces asignale a autor con la variable u
 		curso.ifPresent(c -> this.curso = c); //si el usuario esta presente {existe} entonces asignale c curso con la variable c
 		
+	}
+	
+	public Topico() {}; //this constructor is for that when the base connect//
+
+	public Topico(String titulo, String mensaje, Optional<Usuario> usuario, Optional<Curso> curso) {
+		this.titulo = titulo;
+		this.mensaje = mensaje;
+		 //if the autor is present so assign to the atributte autor//
+		usuario.ifPresent(a->this.autor = a);
+		curso.ifPresent(c ->this.curso = c);
 	}
 
 	@Override

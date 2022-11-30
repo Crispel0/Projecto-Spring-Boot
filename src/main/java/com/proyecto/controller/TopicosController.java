@@ -33,8 +33,8 @@ public class TopicosController {
 	}
 	
 	//@RequestMapping(value ="/topicos",method = RequestMethod.POST )
-	@PostMapping 
 	//here create a new Topico for make a difference between the TopicoDTO and this Topic//
+	@PostMapping 
 	public void registrar (@RequestBody TopicoForm topicoForm) {
 		topicoservice.registrar(topicoForm);
 	}

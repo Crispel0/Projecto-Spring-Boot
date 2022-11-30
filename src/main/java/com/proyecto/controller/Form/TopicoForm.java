@@ -38,7 +38,8 @@ public class TopicoForm {
 		this.nombreCurso = nombreCurso;
 	}
 	public Topico convertir(Optional<Usuario> usuario, Optional<Curso> curso) {
-		return new Topico(this.titulo, this.mensaje, usuario, curso);
+		return new Topico(titulo, mensaje, usuario, curso);
+
 	}
 	
 	
